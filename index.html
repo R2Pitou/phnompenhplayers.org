@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phnom Penh Players - Theatre For a Cause</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#d49d20',
+                        charcoal: '#333333',
+                        cream: '#f8f5f0',
+                        burgundy: '#8c1c13',
+                        deepblue: '#1e3a5f'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #f8f5f0;
+            color: #333;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-pattern {
+            background-color: #000000;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d49d20' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .content-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .tab-active {
+            border-bottom: 3px solid #d49d20;
+            color: #d49d20;
+            font-weight: 600;
+        }
+
+        .mask-logo {
+            filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 md:px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="flex items-center">
+                        <!-- Theater Masks SVG Logo -->
+                        <img class="w-10 h-10 mr-3 assets/images/VectorLogo-bw-500.png>
+                        <div class="text-xl font-bold">
+                            <span class="font-playfair">Phnom Penh Players</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-700 hover:text-gold transition">About</a>
+                    <a href="#content" class="text-gray-700 hover:text-gold transition">Content</a>
+                    <a href="#committee" class="text-gray-700 hover:text-gold transition">Committee</a>
+                    <a href="#contact" class="text-gray-700 hover:text-gold transition">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-gold focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pt-4 pb-2">
+                <a href="#about" class="block py-2 text-gray-700 hover:text-gold">About</a>
+                <a href="#content" class="block py-2 text-gray-700 hover:text-gold">Content</a>
+                <a href="#committee" class="block py-2 text-gray-700 hover:text-gold">Committee</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-gold">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-pattern text-white">
+        <div class="container mx-auto px-4 md:px-6 py-20 md:py-32">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="flex justify-center mb-8">
+                    <!-- Larger Theater Masks SVG Logo -->
+                    <img class="w-32 h-32 assets/images/horizontal-text-right.png">
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Phnom Penh Players</h1>
+                <p class="text-xl md:text-2xl mb-4 text-gold font-semibold">"Theatre For a Cause"</p>
+                <p class="text-sm italic mb-8">- <a href="https://www.khmertimeskh.com/50586255/shanghai-cabaret-theater-for-a-cause/" class="underline hover:text-gold" target="_blank">Khmer Times</a></p>
+                <a href="#content" class="bg-gold text-black px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">Explore Our Work</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">About Us</h2>
+                <div class="prose prose-lg max-w-none">
+                    <p class="mb-6">Founded in 1992 by Vicky Rodgers, Phnom Penh Players is a vibrant community theatre group with a mission to entertain while giving back to Cambodia. Our productions range from classic plays to original works, including dramas, musicals, and even Phnom Penh's first adult-only pantomime.</p>
+                    
+                    <p class="mb-6">Each show supports a vetted local charity, with proceeds shared during our annual "Plazzies" ceremony—a unique event honouring the impact of our work and celebrating the fantasy we've created.</p>
+                    
+                    <p class="mb-6">We're a not-for-profit, inclusive community of theatre lovers from all backgrounds, united by a shared passion. For over 30 years, we've welcomed volunteers from around the world to bring creativity to life, whether acting on stage, designing costumes, building sets, or managing backstage roles.</p>
+                    
+                    <p class="font-bold text-center text-xl text-gold">With Phnom Penh Players, everyone has a place in community theatre!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section id="content" class="py-16 md:py-24 bg-cream">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Our Content</h2>
+            
+            <!-- Content Tabs -->
+            <div class="max-w-4xl mx-auto mb-12">
+                <div class="flex flex-wrap justify-center border-b">
+                    <button class="tab-button px-6 py-3 tab-active" data-tab="posters">Posters</button>
+                    <button class="tab-button px-6 py-3" data-tab="photos">Photo Albums</button>
+                    <button class="tab-button px-6 py-3" data-tab="articles">Press Coverage</button>
+                </div>
+            </div>
+            
+            <!-- Tab Content -->
+            <div class="max-w-6xl mx-auto">
+                <!-- Posters Tab -->
+                <div id="posters-content" class="tab-content">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Poster 1 -->
+                        <div class="content-card bg-white rounded-lg overflow-hidden shadow-md">
+                            <div class="p-1 bg-gold">
+                                <!-- Canva Embed Placeholder -->
+                                <div class="aspect-[3/4] bg-gray-200 flex items-center justify-center">
+                                    <div class="text-center p-4">
+                                        <svg class="w-16 h-16 mx-auto text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <p class="mt-2 text-gray-500">12-8 Poster</p>
+                                        <p class="text-sm text-gray-400">Canva Embed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">12-8 (2022)</h3>
+                                <p class="text-gray-600">A play by Cambodian playwright Sok Samithi about two young adults navigating their relationship while working at a convenience store.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Poster 2 -->
+                        <div class="content-card bg-white rounded-lg overflow-hidden shadow-md">
+                            <div class="p-1 bg-gold">
+                                <!-- Canva Embed Placeholder -->
+                                <div class="aspect-[3/4] bg-gray-200 flex items-center justify-center">
+                                    <div class="text-center p-4">
+                                        <svg class="w-16 h-16 mx-auto text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <p class="mt-2 text-gray-500">Shanghai Cabaret Poster</p>
+                                        <p class="text-sm text-gray-400">Canva Embed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">Shanghai Cabaret</h3>
+                                <p class="text-gray-600">A musical inspired by the 1969 musical Cabaret and Christopher Isherwood's Goodbye to Berlin, supporting the Chhouk Sar Clinic.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Poster 3 -->
+                        <div class="content-card bg-white rounded-lg overflow-hidden shadow-md">
+                            <div class="p-1 bg-gold">
+                                <!-- Canva Embed Placeholder -->
+                                <div class="aspect-[3/4] bg-gray-200 flex items-center justify-center">
+                                    <div class="text-center p-4">
+                                        <svg class="w-16 h-16 mx-auto text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <p class="mt-2 text-gray-500">Annual Pantomime Poster</p>
+                                        <p class="text-sm text-gray-400">Canva Embed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">Annual Pantomime</h3>
+                                <p class="text-gray-600">Phnom Penh's first adult-only pantomime, bringing laughter and entertainment while supporting local charities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Photos Tab -->
+                <div id="photos-content" class="tab-content hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Photo Album 1 -->
+                        <div class="content-card bg-white rounded-lg overflow-hidden shadow-md">
+                            <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                                <!-- Google Photos Embed Placeholder -->
+                                <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
+                                    <div class="text-center p-4">
+                                        <svg class="w-16 h-16 mx-auto text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <p class="mt-2 text-gray-500">12-8 Production Photos</p>
+                                        <p class="text-sm text-gray-400">Google Photos Album Embed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">12-8 Production</h3>
+                                <p class="text-gray-600">Photos from our production of the Cambodian playwright Sok Samithi's work at Java Creative Cafe.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Photo Album 2 -->
+                        <div class="content-card bg-white rounded-lg overflow-hidden shadow-md">
+                            <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                                <!-- Google Photos Embed Placeholder -->
+                                <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
+                                    <div class="text-center p-4">
+                                        <svg class="w-16 h-16 mx-auto text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <p class="mt-2 text-gray-500">Shanghai Cabaret Photos</p>
+                                        <p class="text-sm text-gray-400">Google Photos Album Embed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">Shanghai Cabaret</h3>
+                                <p class="text-gray-600">Images from our performances at the Chinese House, supporting the Chhouk Sar Clinic.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Photo Album 3 -->
+                        <div class="content-card bg-white rounded-lg overflow-hidden shadow-md">
+                            <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                                <!-- Google Photos Embed Placeholder -->
+                                <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
+                                    <div class="text-center p-4">
+                                        <svg class="w-16 h-16 mx-auto text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <p class="mt-2 text-gray-500">Rehearsal Photos</p>
+                                        <p class="text-sm text-gray-400">Google Photos Album Embed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">Behind the Scenes</h3>
+                                <p class="text-gray-600">A glimpse into our rehearsal process and the dedicated volunteers who make our productions possible.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Photo Album 4 -->
+                        <div class="content-card bg-white rounded-lg overflow-hidden shadow-md">
+                            <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                                <!-- Google Photos Embed Placeholder -->
+                                <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
+                                    <div class="text-center p-4">
+                                        <svg class="w-16 h-16 mx-auto text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <p class="mt-2 text-gray-500">Plazzies Ceremony</p>
+                                        <p class="text-sm text-gray-400">Google Photos Album Embed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">The Plazzies</h3>
+                                <p class="text-gray-600">Our annual ceremony celebrating our impact and sharing proceeds with local charities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Articles Tab -->
+                <div id="articles-content" class="tab-content hidden">
+                    <div class="space-y-8">
+                        <!-- Article 1 -->
+                        <div class="content-card bg-white rounded-lg overflow-hidden shadow-md">
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-gold text-black text-xs px-3 py-1 rounded-full">Phnom Penh Post</div>
+                                    <span class="ml-3 text-gray-500 text-sm">2022</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3">Khmer playwright's work makes stage debut</h3>
+                                <p class="text-gray-600 mb-4">The Phnom Penh Players, a non-profit theatre group in Cambodia, is presenting a play titled 12-8 at the Java Creative Cafe in Phnom Penh. The play, which was written by Cambodian playwright Sok Samithi and co-directed by Marika Els, tells the story of two young adults working at a convenience store in Phnom Penh as they navigate their relationship and their future.</p>
+                                <div class="border-t pt-4">
+                                    <p class="text-sm text-gray-500 italic">The play tackles themes of change and transition and is based on Samithi's own experiences while studying abroad. The Phnom Penh Players, which was founded by international expatriates but now includes Cambodian artists and actors, is presenting the play as part of its 2022 season and in collaboration with Creative Generation, an initiative that supports up-and-coming Khmer artists.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article 2 -->
+                        <div class="content-card bg-white rounded-lg overflow-hidden shadow-md">
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-gold text-black text-xs px-3 py-1 rounded-full">Khmer Times</div>
+                                    <span class="ml-3 text-gray-500 text-sm">2019</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3">Shanghai Cabaret: Theater for a cause</h3>
+                                <p class="text-gray-600 mb-4">The Phnom Penh Players, a theatre group based in Cambodia, is presenting a musical called Shanghai Cabaret that is inspired by the 1969 musical Cabaret and Christopher Isherwood's Goodbye to Berlin. The musical will be performed for four nights at the Chinese House and all proceeds from ticket sales will go to the Chhouk Sar Clinic.</p>
+                                <div class="border-t pt-4">
+                                    <p class="text-sm text-gray-500 italic">The Chhouk Sar Clinic provides free HIV testing and treatment to high-risk groups in Cambodia, including members of the LGBTQI community and entertainment workers. The Phnom Penh Players donate all proceeds from their productions to local charities and chose to support the Chhouk Sar Clinic due to the themes of sexuality and sex in the musical. The director of the musical, Chas Hamilton, hopes that the audience will take away a "positive story" and an "emotional connection" from the performance.</p>
+                                    <p class="mt-2 text-sm">
+                                        <a href="https://www.khmertimeskh.com/50586255/shanghai-cabaret-theater-for-a-cause/" class="text-gold hover:underline" target="_blank">Read full article →</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Committee Section -->
+    <section id="committee" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Committee 2025-2026</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Committee Member 1 -->
+                    <div class="bg-cream p-5 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg mb-1">Chairperson</h3>
+                        <p>Alex Rose</p>
+                    </div>
+                    
+                    <!-- Committee Member 2 -->
+                    <div class="bg-cream p-5 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg mb-1">Treasurers</h3>
+                        <p>Raven Krystal Norwood</p>
+                        <p>Yen Yee Toh</p>
+                    </div>
+                    
+                    <!-- Committee Member 3 -->
+                    <div class="bg-cream p-5 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg mb-1">Marketing & Communications</h3>
+                        <p>Rachel Pilloff</p>
+                    </div>
+                    
+                    <!-- Committee Member 4 -->
+                    <div class="bg-cream p-5 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg mb-1">Secretaries</h3>
+                        <p>Micheline Kilian</p>
+                        <p>Dublin Parker</p>
+                    </div>
+                    
+                    <!-- Committee Member 5 -->
+                    <div class="bg-cream p-5 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg mb-1">Resources</h3>
+                        <p>Arttu Karppanen</p>
+                        <p>Maria La-Follette Bruno</p>
+                    </div>
+                    
+                    <!-- Committee Member 6 -->
+                    <div class="bg-cream p-5 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg mb-1">Perpetual ABA holder</h3>
+                        <p>Emily Marques</p>
+                    </div>
+                    
+                    <!-- Committee Member 7 -->
+                    <div class="bg-cream p-5 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg mb-1">Child Protection leads</h3>
+                        <p>Maria La-Follette Bruno</p>
+                        <p>Arttu Karppanen</p>
+                    </div>
+                    
+                    <!-- Committee Member 8 -->
+                    <div class="bg-cream p-5 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg mb-1">System Administrator</h3>
+                        <p>Arttu Karppanen</p>
+                        <p class="text-sm text-gray-500 mt-1">Server access / Troubleshooting</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-cream">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Contact Us</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Get in Touch</h3>
+                        <p class="mb-6">Interested in joining our community, attending a performance, or learning more about what we do? We'd love to hear from you!</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="text-gold mr-3">
+                                    <i class="fas fa-envelope mt-1"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Email</h4>
+                                    <p>info@phnompenhplayers.org</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-gold mr-3">
+                                    <i class="fas fa-map-marker-alt mt-1"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Location</h4>
+                                    <p>Performances at various venues throughout Phnom Penh</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-gold mr-3">
+                                    <i class="fas fa-users mt-1"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Social Media</h4>
+                                    <div class="flex space-x-4 mt-2">
+                                        <a href="https://www.facebook.com/PhnomPenhPlayers" target="_blank" class="text-gray-600 hover:text-gold transition">
+                                            <i class="fab fa-facebook-f text-xl"></i>
+                                        </a>
+                                        <a href="https://www.instagram.com/phnompenhplayers" target="_blank" class="text-gray-600 hover:text-gold transition">
+                                            <i class="fab fa-instagram text-xl"></i>
+                                        </a>
+                                        <a href="https://t.me/ppplayers" target="_blank" class="text-gray-600 hover:text-gold transition">
+                                            <i class="fab fa-telegram text-xl"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Join Our Mailing List</h3>
+                        <p class="mb-6">Subscribe to receive updates about upcoming performances, auditions, and workshops.</p>
+                        
+                        <form id="subscribe-form" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-gold focus:border-gold">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-gold focus:border-gold">
+                            </div>
+                            
+                            <div>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="rounded text-gold focus:ring-gold h-4 w-4">
+                                    <span class="ml-2 text-sm text-gray-600">I'm interested in auditioning or volunteering</span>
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="bg-gold text-black px-6 py-2 rounded-md hover:bg-opacity-90 transition">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-8">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0 flex items-center">
+                    <!-- Small Theater Masks SVG Logo -->
+                    <svg class="w-8 h-8 mr-3 mask-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <!-- Tragedy Mask -->
+                            <path d="M30 20C20 25 15 40 20 55C25 70 40 75 50 70C45 65 40 55 40 45C40 35 45 25 50 20C45 15 40 15 30 20Z" fill="black"/>
+                            <path d="M25 35C27 33 30 34 31 37C32 40 30 44 28 45C26 46 23 45 22 42C21 39 23 37 25 35Z" fill="white"/>
+                            <path d="M35 50C37 48 40 49 41 52C42 55 40 59 38 60C36 61 33 60 32 57C31 54 33 52 35 50Z" fill="white"/>
+                            <path d="M30 20C20 25 15 40 20 55C25 70 40 75 50 70C45 65 40 55 40 45C40 35 45 25 50 20C45 15 40 15 30 20Z" stroke="white" stroke-width="2"/>
+                            
+                            <!-- Comedy Mask -->
+                            <path d="M70 20C80 25 85 40 80 55C75 70 60 75 50 70C55 65 60 55 60 45C60 35 55 25 50 20C55 15 60 15 70 20Z" fill="white"/>
+                            <path d="M75 35C73 33 70 34 69 37C68 40 70 44 72 45C74 46 77 45 78 42C79 39 77 37 75 35Z" fill="black"/>
+                            <path d="M65 50C63 48 60 49 59 52C58 55 60 59 62 60C64 61 67 60 68 57C69 54 67 52 65 50Z" fill="black"/>
+                            <path d="M70 20C80 25 85 40 80 55C75 70 60 75 50 70C55 65 60 55 60 45C60 35 55 25 50 20C55 15 60 15 70 20Z" stroke="white" stroke-width="2"/>
+                        </g>
+                    </svg>
+                    <div>
+                        <p class="text-lg font-bold">Phnom Penh Players</p>
+                        <p class="text-gold text-sm">"Theatre For a Cause"</p>
+                    </div>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400 text-sm">Founded in 1992 by Vicky Rodgers</p>
+                    <p class="text-gray-400 text-sm">&copy; 2023 Phnom Penh Players. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Content Tabs
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabButtons.forEach(btn => btn.classList.remove('tab-active'));
+                
+                // Add active class to clicked button
+                button.classList.add('tab-active');
+                
+                // Hide all tab contents
+                tabContents.forEach(content => content.classList.add('hidden'));
+                
+                // Show the selected tab content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(`${tabId}-content`).classList.remove('hidden');
+            });
+        });
+        
+        // Form Submission
+        const subscribeForm = document.getElementById('subscribe-form');
+        
+        subscribeForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            if (name && email) {
+                alert(`Thank you, ${name}! You've been added to our mailing list.`);
+                subscribeForm.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
